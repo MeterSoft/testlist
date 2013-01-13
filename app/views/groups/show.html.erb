@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @group.name %>
+  <%= link_to 'Task', tasks_path %>
+</p>
+
+<div>
+  <%= hidden_field_tag :group_id, '', value: @group.id %>
+  <% if @tasks != [] %>
+      <ul class="sortable">
+        <% @tasks.each do |t| %>
+
+          <li id="task_<%= t.id%>" > <%= t.title %></li>
+
+        <% end %>
+      </ul>
+   <% end %>
+
+</div>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+<%= link_to 'User', users_path %>
+
+
+<script>
+    $(function() {
+        $(".sortable").sortable({
+            update: function(event, ui) {
+                var str = $(this).sortable('serialize');
+                if ($('#group_id').val()) {
+                    str = str + "&group_id=" + $('#group_id').val();
+                }
+                $.ajax({
+                    url: "<%= group_orders_path %>",
+                    data: str
+                });
+            }
+        })
+    });
+</script>
