@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= hidden_field_tag :group_id, '', value: @group.id %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

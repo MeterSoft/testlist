@@ -22,5 +22,5 @@
 
 <br />
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_task_path(:group_id => @group.id) %>
 <%= link_to 'Group', groups_path %>

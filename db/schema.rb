@@ -11,9 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112221659) do
+ActiveRecord::Schema.define(:version => 20130114172811) do
 
-  create_table "group_orders", :force => true do |t|
+  create_table "coments", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "task_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "group_order", :force => true do |t|
     t.integer  "group_id"
     t.integer  "task_id"
     t.datetime "created_at", :null => false

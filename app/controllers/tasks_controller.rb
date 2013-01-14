@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +26,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @group = Group.find(params[:group_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +43,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
-    @task.group = $group
+    @task.group = Group.find(params[:group_id])
 
 
     respond_to do |format|

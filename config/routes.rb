@@ -7,6 +7,8 @@ Testlist::Application.routes.draw do
 
   resources :group_orders
 
+  resources :coments
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

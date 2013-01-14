@@ -3,7 +3,7 @@
 <p>
   <b>Name:</b>
   <%= @group.name %>
-  <%= link_to 'Task', tasks_path %>
+  <%= link_to 'Task', tasks_path(:group_id => @group.id) %>
 </p>
 
 <div>
@@ -23,6 +23,10 @@
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
 <%= link_to 'User', users_path %>
+
+<div>
+  <%= render "coments/coment" %>
+</div>
 
 
 <script>

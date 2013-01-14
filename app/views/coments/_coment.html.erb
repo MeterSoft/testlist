@@ -1,0 +1,9 @@
+<%= form_for [@coment, Coment.new],:remote => true do |f| %>
+    <div class="field">
+      <%= label_tag "Add you comment here:" %><br />
+      <%= f.text_field :content %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+<% end %>
